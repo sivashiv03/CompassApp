@@ -23,7 +23,7 @@ public class CustomerMaster {
 	private String industry;
 	
 	@Column(name = "country_hq")
-	private String country_HQ;
+	private String countryhq;
 	
 	@Column(name = "revenue")
 	private double revenue;
@@ -34,8 +34,11 @@ public class CustomerMaster {
 	@Column(name = "annual_inventory")
 	private long annualInventory;
 	
-	@Column(name = "cost_of_captal")
+	@Column(name = "cost_of_capital")
 	private double cogsCapital;
+	
+	@Column(name = "cogs_as_revenue")
+	private double cogsAsRevene;
 	
 	@Column(name = "days_fin_close")
 	private int daysFinClose;
@@ -61,6 +64,9 @@ public class CustomerMaster {
 	@Column(name = "sga_expense")
 	private double sgaExpenses;
 
+	@Column(name = "remarks")
+	private String remarks;
+	
 	/**
 	 * @return the customerId
 	 */
@@ -97,18 +103,7 @@ public class CustomerMaster {
 	public void setIndustry(String industry) {
 		this.industry = industry;
 	}
-	/**
-	 * @return the country_HQ
-	 */
-	public String getCountry_HQ() {
-		return country_HQ;
-	}
-	/**
-	 * @param country_HQ the country_HQ to set
-	 */
-	public void setCountry_HQ(String country_HQ) {
-		this.country_HQ = country_HQ;
-	}
+	
 	/**
 	 * @return the revenue
 	 */
@@ -253,6 +248,42 @@ public class CustomerMaster {
 	public void setSgaExpenses(double sgaExpenses) {
 		this.sgaExpenses = sgaExpenses;
 	}
-
+	/**
+	 * @return the countryhq
+	 */
+	public String getCountryhq() {
+		return countryhq;
+	}
+	/**
+	 * @param countryhq the countryhq to set
+	 */
+	public void setCountryhq(String countryhq) {
+		this.countryhq = countryhq;
+	}
+	/**
+	 * @return the remarks
+	 */
+	public String getRemarks() {
+		return remarks;
+	}
+	/**
+	 * @param remarks the remarks to set
+	 */
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+	/**
+	 * @return the cogsAsPercentage
+	 */
+	public double getCogsAsPercentage() {
+		return cogsAsRevene;
+	}
+	/**
+	 * @param cogsAsPercentage the cogsAsPercentage to set
+	 */
+	public void setCogsAsPercentage(double cogsAsPercentage) {
+		this.cogsAsRevene = cogsAsPercentage;
+	}
+	
 
 }

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+background-color:#404040;
+color:white;
+}
+
+
+.rightPanel{
+margin-top: 10px;
+height:auto;
+width:680px;
+align-content:center;
+background-color:rebeccapurple;
+border-radius:20px;
+
+}
+
+.inputFields{
+background-color:black;}
+
+.sidebar {
+  margin-left:10px;
+  padding: 20;
+  width: 200px;
+  background-color:rebeccapurple;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+border-radius:20px;
+
+}
+
+.sidebar a {
+  display: block;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: black;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container row">
+
+<div class="col-sm-4 sidebar ">
+  <a class="active" href="#home">Home</a>
+  <a href="#">LINK1</a>
+  <a href="#">Link2</a>
+  <a href="#">Link3</a>
+</div>
+
+<div class="col-sm-4"></div>
+<div class="col-sm-4 container rightPanel">
+  <h2 class="form-center text-center">Customer Master</h2>
+  <form class="form-horizontal" action="#" th:action="@{/addCustomer}" th:object="${customerMaster}"
+					method="post">
+   
+ <div class="form-group">
+      <label class="control-label col-sm-3" for="companyName">Company Name:</label>
+      <div class="col-sm-8">
+        <input type="text" th:field="*{customerName}" class="form-control inputFields"  id="companyName" placeholder="Enter Company" name="companyName">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="industry">Industry:</label>
+      <div class="col-sm-8">
+        <input type="text" th:field="*{industry}" class="form-control inputFields"  id="industry" placeholder="Enter Industry" name="industry">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="countryHQ">Country HQ:</label>
+      <div class="col-sm-8">
+        <input type="text" th:field="*{countryhq}" class="form-control inputFields"  id="countryHQ" placeholder="Enter Country HQ" name="countryHQ">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="revenue">Revenue:</label>
+      <div class="col-sm-8">
+        <input  type="number"  step="any" th:field="*{revenue}" class="form-control inputFields"  id="revenue" placeholder="Enter Revenue" name="revenue">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="numOfEmp">No. of Employees:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{noOfEmployees}" class="form-control inputFields"  id="numOfEmp" placeholder="Enter Number Of Employees" name="numOfEmp">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="inventory">Annual Inventory:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{annualInventory}" class="form-control inputFields"  id="inventory" placeholder="Enter Annual Inventory" name="inventory">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="cogs">COGS As % Revenue:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{cogsAsPercentage}" class="form-control inputFields"  id="cogs" placeholder="Enter COGS" name="cogs">
+      </div>
+    </div>
+
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="costOfCapital">Cost of Capital:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{cogsCapital}" class="form-control inputFields"  id="costOfCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="daysToFinClose">Days To Fin Close:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{daysFinClose}" class="form-control inputFields"  id="daysToFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="dso">DSO:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{dso}" class="form-control inputFields"  id="dso" placeholder="Enter DSO" name="dso">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="hrWrkPrDay">Hours Work Per day:</label>
+      <div class="col-sm-8">
+        <input type="number"  th:field="*{hoursWorkedPerDay}" class="form-control inputFields"  id="hrWrkPrDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
+      </div>
+    </div>
+
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="ItBudget">IT Budget as % of Revenue:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{itBudget}" class="form-control inputFields"  id="ItBudget" placeholder="Enter IT Budget As % Of Revenue:" name="ItBudget">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="operatingExpenses">Operating Expenses:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{operatingExpenses}" class="form-control inputFields"  id="operatingExpenses" placeholder="Enter operating Expenses:" name="operatingExpenses">
+      </div>
+    </div>
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="oprtngProfitMargin">Operating Profit Margin:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{operatingProfitMargin}" class="form-control inputFields"  id="oprtngProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="r&dExpense">R&D Expenses:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{rndExpenses}" class="form-control inputFields"  id="r&dExpense" placeholder="Enter R&D Expenses:" name="r&dExpense">
+      </div>
+    </div>
+ <div class="form-group">
+      <label class="control-label col-sm-3" for="sg&aExpense">SG&A Expenses:</label>
+      <div class="col-sm-8">
+        <input type="number" th:field="*{sgaExpenses}" class="form-control inputFields"  id="sg&aExpenses" placeholder="Enter SG&A Expenses:" name="sg&aExpense">
+      </div>
+    </div>   
+
+<div class="form-group">
+      <label class="control-label col-sm-3" for="sg&aExpense">Remarks:</label>
+      <div class="col-sm-8">
+	
+        <textarea type="text" th:field="*{remarks}" class="form-control inputFields" rows="4"  id="remark" placeholder="Enter Remarks:" name="remark"></textarea>
+      </div>
+    </div>
+ 
+    <div class="form-group">        
+      <div class="col-sm-offset-5 col-sm-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+
+</body>
+</html>
