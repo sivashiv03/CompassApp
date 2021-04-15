@@ -57,17 +57,16 @@ public class AssesmentController {
 		if (result.hasErrors()) {
 			return "index";
 		}
-
 		customerRepository.save(customerMaster);
-		return "redirect:/getIndex";
+		return "redirect:/getCustomerLandingPage";
 	}
 
 
-	@GetMapping("/getIndex")
+	@GetMapping("/getCustomerLandingPage")
 	public String getIndex(Model model) {
 		CustomerMaster customerMaster = new CustomerMaster();
 		model.addAttribute("customerMaster",customerMaster);		
-		return "index";
+		return "CustomerMasterForm";
 	}
 
 
