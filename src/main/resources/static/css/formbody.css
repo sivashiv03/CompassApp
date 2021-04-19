@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+	font-family: "Lato", sans-serif;
+	color: #8C92AF;
+}
+
+.rightPanel {
+	margin-top: 10px;
+	height: auto;
+	align-content: right;
+	border-radius: 20px;
+}
+
+.leftPanel {
+	margin-top: 10px;
+	height: auto;
+	align-content: left;
+	border-radius: 20px;
+}
+
+#first {
+	width: auto;
+	float: left;
+	height: 300px;
+}
+
+#second {
+	width: auto;
+	float: left;
+	height: 300px;
+	padding-left:100px;
+}
+
+#container {
+    width: 300px;
+    background-color: #ffcc33;
+    margin: auto;
+}
