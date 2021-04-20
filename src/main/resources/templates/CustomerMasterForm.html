@@ -1,9 +1,9 @@
 <script type="text/javascript" src="/js/jquery-1.11.1.min.js" th:src="@{/js/jquery-1.11.1.min.js}"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script type="text/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-<link rel="stylesheet" type="text/css" href="css/sample.css">
+<link rel="stylesheet" type="text/css" href="css/customermaster.css">
 <link rel="stylesheet" type="text/css" href="css/formbody.css">
-<script type="text/javascript" src="/js/sample.js" th:src="@{/js/sample.js}" ></script>
+<script type="text/javascript" src="/js/customermaster.js" th:src="@{/js/customermaster.js}" ></script>
 
 
 <body class="home">
@@ -42,8 +42,27 @@
                                 </div>
                             </nav>
                             <div class="search hidden-xs hidden-sm">
-                                <input type="text" placeholder="Search" id="search">
-                            </div>
+                                <!-- <input type="text" placeholder="Search" id="search"> -->
+								<div class="stepwizard">
+									<div class="stepwizard-row setup-panel">
+										<div class="stepwizard-step">
+											<a href="#step-1" type="button"
+												class="btn btn-primary btn-circle">1</a>
+											<p>Company Details</p>
+										</div>
+										<div class="stepwizard-step">
+											<a href="#step-2" type="button"
+												class="btn btn-default btn-circle" disabled="disabled">2</a>
+											<p>Metrics</p>
+										</div>
+										<div class="stepwizard-step">
+											<a href="#step-3" type="button"
+												class="btn btn-default btn-circle" disabled="disabled">3</a>
+											<p>Assessment Scope</p>
+										</div>
+									</div>
+								</div>
+							</div>
                         </div>
                     </header>
                 </div>
@@ -51,48 +70,51 @@
                     
     
                     <div class="leftPanel">
-  <form class="form-horizontal" action="#" th:action="@{/addCustomer}" th:object="${customerMaster}"
+  <form id ="customerForm" class="form-horizontal" action="#" th:action="@{/addCustomer}" th:object="${customerMaster}"
 					method="post">
-					<div id="first">
+					<div class="row setup-content" id="step-1">
    <div class="form-group">
       <label class="control-label col-sm-3" for="companyName">Company Name:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{customerName}" class="form-control inputFields"  id="companyName" placeholder="Enter Company" name="companyName">
+        <input type="text" th:field="*{customerName}" required="required" class="form-control inputFields"  id="companyName" placeholder="Enter Company" name="companyName">
       </div>
       </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="industry">Industry:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{industry}" class="form-control inputFields"  id="industry" placeholder="Enter Industry" name="industry">
+        <input type="text" th:field="*{industry}" required="required" class="form-control inputFields"  id="industry" placeholder="Enter Industry" name="industry">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="countryHQ">Country HQ:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{countryhq}" class="form-control inputFields"  id="countryHQ" placeholder="Enter Country HQ" name="countryHQ">
+        <input type="text" th:field="*{countryhq}" required="required" class="form-control inputFields"  id="countryHQ" placeholder="Enter Country HQ" name="countryHQ">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="revenue">Revenue:</label>
       <div class="col-sm-8">
-        <input  type="number"  step="any" th:field="*{revenue}" class="form-control inputFields"  id="revenue" placeholder="Enter Revenue" name="revenue">
+        <input  type="number"  step="any" th:field="*{revenue}" required="required" class="form-control inputFields"  id="revenue" placeholder="Enter Revenue" name="revenue">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="numOfEmp">No. of Employees:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{noOfEmployees}" class="form-control inputFields"  id="numOfEmp" placeholder="Enter Number Of Employees" name="numOfEmp">
+        <input type="number" th:field="*{noOfEmployees}" required="required" class="form-control inputFields"  id="numOfEmp" placeholder="Enter Number Of Employees" name="numOfEmp">
       </div>
     </div>
+     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+    </div>
 
+<div class="row setup-content" id="step-2">
 <div class="form-group">
       <label class="control-label col-sm-3" for="inventory">Annual Inventory:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{annualInventory}" class="form-control inputFields"  id="inventory" placeholder="Enter Annual Inventory" name="inventory">
+        <input type="number" th:field="*{annualInventory}"  class="form-control inputFields"  id="inventory" placeholder="Enter Annual Inventory" name="inventory">
       </div>
     </div>
 
@@ -106,35 +128,34 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="costOfCapital">Cost of Capital:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{cogsCapital}" class="form-control inputFields"  id="costOfCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
+        <input type="number" th:field="*{cogsCapital}"  class="form-control inputFields"  id="costOfCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-3" for="sg&aExpense">SG&A Expenses:</label>
+      <label class="control-label col-sm-3" for="sgaExpense">SG&A Expenses:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{sgaExpenses}" class="form-control inputFields"  id="sg&aExpenses" placeholder="Enter SG&A Expenses:" name="sg&aExpense">
+        <input type="number" th:field="*{sgaExpenses}"  class="form-control inputFields"  id="sgaExpenses" placeholder="Enter SG&A Expenses:" name="sg&aExpense">
       </div>
     </div>   
-    </div>
-    <div id="second">
+  
     <div class="form-group">
       <label class="control-label col-sm-3" for="daysToFinClose">Days To Fin Close:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{daysFinClose}" class="form-control inputFields"  id="daysToFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
+        <input type="number" th:field="*{daysFinClose}"   class="form-control inputFields"  id="daysToFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="dso">DSO:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{dso}" class="form-control inputFields"  id="dso" placeholder="Enter DSO" name="dso">
+        <input type="number" th:field="*{dso}"  class="form-control inputFields"  id="dso" placeholder="Enter DSO" name="dso">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="hrWrkPrDay">Hours Work Per day:</label>
       <div class="col-sm-8">
-        <input type="number"  th:field="*{hoursWorkedPerDay}" class="form-control inputFields"  id="hrWrkPrDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
+        <input type="number"  th:field="*{hoursWorkedPerDay}"  class="form-control inputFields"  id="hrWrkPrDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
       </div>
     </div>
 
@@ -142,42 +163,49 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="ItBudget">IT Budget as % of Revenue:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{itBudget}" class="form-control inputFields"  id="ItBudget" placeholder="Enter IT Budget As % Of Revenue:" name="ItBudget">
+        <input type="number" th:field="*{itBudget}"  class="form-control inputFields"  id="ItBudget" placeholder="Enter IT Budget As % Of Revenue:" name="ItBudget">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="operatingExpenses">Operating Expenses:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{operatingExpenses}" class="form-control inputFields"  id="operatingExpenses" placeholder="Enter operating Expenses:" name="operatingExpenses">
+        <input type="number" th:field="*{operatingExpenses}"  class="form-control inputFields"  id="operatingExpenses" placeholder="Enter operating Expenses:" name="operatingExpenses">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="oprtngProfitMargin">Operating Profit Margin:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{operatingProfitMargin}" class="form-control inputFields"  id="oprtngProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
+        <input type="number" th:field="*{operatingProfitMargin}"  class="form-control inputFields"  id="oprtngProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-3" for="r&dExpense">R&D Expenses:</label>
       <div class="col-sm-8">
-        <input type="number" th:field="*{rndExpenses}" class="form-control inputFields"  id="r&dExpense" placeholder="Enter R&D Expenses:" name="r&dExpense">
+        <input type="number" th:field="*{rndExpenses}"  class="form-control inputFields"  id="randdExpense" placeholder="Enter R&D Expenses:" name="r&dExpense">
       </div>
     </div>
 
 <div class="form-group">
-      <label class="control-label col-sm-3" for="sg&aExpense">Remarks:</label>
+      <label class="control-label col-sm-3" for="remarks">Remarks:</label>
       <div class="col-sm-8">
 	
-        <textarea type="text" th:field="*{remarks}" class="form-control inputFields" rows="4"  id="remark" placeholder="Enter Remarks:" name="remark"></textarea>
+        <textarea type="text" th:field="*{remarks}"  class="form-control inputFields" rows="4"  id="remark" placeholder="Enter Remarks" name="remark"></textarea>
       </div>
+        </div>
+         <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
     </div>
+    
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12">
+                <h3>Submit</h3>
+                <button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+            </div>
+        </div>
     </div>
-      <div style= "float: right;">
-        <button type="submit" class="btn btn-primary">Next</button>
-      </div>
   </form>
 </div>
 </div>
