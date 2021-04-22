@@ -12,23 +12,14 @@ body {
 }
 
 .leftPanel {
-	margin-top: 10px;
+	margin-top: 20px;
 	height: auto;
 	align-content: left;
 	border-radius: 20px;
 }
 
-#first {
-	width: auto;
-	float: left;
-	height: 300px;
-}
-
-#second {
-	width: auto;
-	float: left;
-	height: 300px;
-	padding-left:100px;
+.col-sm-8 {
+	width: 35.66666667%;
 }
 
 #container {
