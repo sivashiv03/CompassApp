@@ -29,7 +29,7 @@ $(document).ready(function() {
     }(jQuery));
 
     $(".textNumber").inputFilter(function(value) {
-        return /^[0-9a-f]*$/i.test(value); });
+        return /^[a-zA-Z0-9_]*$/.test(value); });
 
     $(".number").inputFilter(function(value) {
         return /^-?\d*[.,]?\d{0,3}$/.test(value);
