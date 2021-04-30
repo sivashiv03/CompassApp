@@ -111,8 +111,8 @@ $(document).ready(function() {
                 } else {
                     resultMsg = "Failed To Save Customer";
                 }
-                $('#step-3').append("<div class='col-xs-12'><div class='col-md-12'><h3>" + resultMsg + "</h3></div></div>");
-                $(".setup-panel").find('.btn-circle').attr('disabled', 'disabled');
+               // $('#step-3').append("<div class='col-xs-12'><div class='col-md-12'><h3>" + resultMsg + "</h3></div></div>");
+               // $(".setup-panel").find('.btn-circle').attr('disabled', 'disabled');
             },
             error: function(e) {
                 console.log("ERROR : ", e);

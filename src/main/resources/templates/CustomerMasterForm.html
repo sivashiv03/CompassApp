@@ -17,9 +17,9 @@
                 </div>
                 <div class="navi">
                     <ul>
+                     	<li><a href="/"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
                         <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Product Advisor</span></a></li>
-                        <!-- <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workflow</span></a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
+                       <!-- <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
                         <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
                         <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
                         <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li> -->
@@ -30,7 +30,7 @@
                 <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
                 <div class="row">
                     <header>
-                        <div class="col-md-7">
+                        <div class="col-md-11">
                             <nav class="navbar-default pull-left">
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
@@ -69,7 +69,7 @@
                 <div class="user-dashboard">
                     
     
-                    <div class="leftPanel">
+                   <!--  <div class="leftPanel"> -->
   <form id ="customerForm" class="form-horizontal" action="#" th:action="@{/addCustomer}" th:object="${customerMaster}"
 					method="post">
 					<div class="row setup-content" id="step-1">
@@ -114,48 +114,48 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="inventory">Annual Inventory:</label>
       <div class="col-sm-8">
-        <input type="text"  required="required" th:field="*{annualInventory}" maxlength="20" class="form-control inputFields onlyNumber"  id="inventory" placeholder="Enter Annual Inventory" name="inventory">
+        <input type="text"  th:field="*{annualInventory}" maxlength="20" class="form-control inputFields onlyNumber"  id="inventory" placeholder="Enter Annual Inventory" name="inventory">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="cogs">COGS As % Revenue:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{cogsAsPercentage}" maxlength="20" class="form-control inputFields number"  id="cogs" placeholder="Enter COGS" name="cogs">
+        <input type="text"  th:field="*{cogsAsPercentage}" maxlength="20" class="form-control inputFields number"  id="cogs" placeholder="Enter COGS" name="cogs">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="costOfCapital">Cost of Capital:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{cogsCapital}" maxlength="20" class="form-control inputFields number"  id="costOfCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
+        <input type="text"  th:field="*{cogsCapital}" maxlength="20" class="form-control inputFields number"  id="costOfCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-3" for="sgaExpense">SG&A Expenses:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{sgaExpenses}" maxlength="20" class="form-control inputFields number"  id="sgaExpenses" placeholder="Enter SG&A Expenses:" name="sg&aExpense">
+        <input type="text"  th:field="*{sgaExpenses}" maxlength="20" class="form-control inputFields number"  id="sgaExpenses" placeholder="Enter SG&A Expenses:" name="sg&aExpense">
       </div>
     </div>   
   
     <div class="form-group">
       <label class="control-label col-sm-3" for="daysToFinClose">Days To Fin Close:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{daysFinClose}" maxlength="20"  class="form-control inputFields onlyNumber"  id="daysToFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
+        <input type="text"  th:field="*{daysFinClose}" maxlength="20"  class="form-control inputFields onlyNumber"  id="daysToFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="dso">DSO:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{dso}" maxlength="20" class="form-control inputFields onlyNumber"  id="dso" placeholder="Enter DSO" name="dso">
+        <input type="text"  th:field="*{dso}" maxlength="20" class="form-control inputFields onlyNumber"  id="dso" placeholder="Enter DSO" name="dso">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="hrWrkPrDay">Hours Work Per day:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{hoursWorkedPerDay}"  class="form-control inputFields onlyNumber"  id="hrWrkPrDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
+        <input type="text"  th:field="*{hoursWorkedPerDay}"  class="form-control inputFields onlyNumber"  id="hrWrkPrDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
       </div>
     </div>
 
@@ -170,29 +170,28 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="operatingExpenses">Operating Expenses:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{operatingExpenses}" maxlength="20" class="form-control inputFields number"  id="operatingExpenses" placeholder="Enter operating Expenses:" name="operatingExpenses">
+        <input type="text"  th:field="*{operatingExpenses}" maxlength="20" class="form-control inputFields number"  id="operatingExpenses" placeholder="Enter operating Expenses:" name="operatingExpenses">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="oprtngProfitMargin">Operating Profit Margin:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{operatingProfitMargin}" maxlength="20"  class="form-control inputFields number"  id="oprtngProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
+        <input type="text"  th:field="*{operatingProfitMargin}" maxlength="20"  class="form-control inputFields number"  id="oprtngProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-3" for="r&dExpense">R&D Expenses:</label>
       <div class="col-sm-8">
-        <input type="text" required="required" th:field="*{rndExpenses}" maxlength="20" class="form-control inputFields number"  id="randdExpense" placeholder="Enter R&D Expenses:" name="r&dExpense">
+        <input type="text"  th:field="*{rndExpenses}" maxlength="20" class="form-control inputFields number"  id="randdExpense" placeholder="Enter R&D Expenses:" name="r&dExpense">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="remarks">Remarks:</label>
       <div class="col-sm-8">
-	
-        <textarea type="text" required="required" th:field="*{remarks}" maxlength="200" class="form-control inputFields textNumber" rows="4"  id="remark" placeholder="Enter Remarks" name="remark"></textarea>
+        <textarea required="required" th:field="*{remarks}" maxlength="200" class="form-control inputFields textNumber" rows="4"  id="remark" placeholder="Enter Remarks" name="remark"></textarea>
       </div>
         </div>
          <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Next</button>
@@ -204,9 +203,161 @@
                 <h3>Customer/Company Details Saved Successfully</h3>
             </div>
         </div> -->
+        <label class="control-label col-md-3">Assessment Scope
+									Selection:</label> <br />
+								<div class="col-md-12">
+									<div class="form-group col-md-3">
+										<label class="control-label" for="prodAdvisor">Product
+											Advisor</label> <input type="checkbox" id="prodAdvisor"
+											name="prodAdvisor">
+									</div>
+									<div class="form-group col-md-3">
+										<label class="control-label" for="depAdvisor">Deployment
+											Advisor</label> <input type="checkbox" id="depAdvisor"
+											name="depAdvisor">
+									</div>
+									<div class="form-group col-md-3">
+										<label class="control-label" for="changeAdvisor">Change
+											Advisor</label> <input type="checkbox" id="changeAdvisor"
+											name="changeAdvisor">
+									</div>
+									<div class="form-group col-md-3">
+										<label class="control-label" for="tcdAdvisor">TCD
+											Advisor</label> <input type="checkbox" id="tcdAdvisor"
+											name="tcdAdvisor">
+									</div>
+								</div>
+
+								<br /> <br /><br /> <br /> <label class="control-label col-md-3">Functional
+									Scope Selection:</label> <br />
+
+								<div class="col-md-12">
+									<div class="row col-md-3">
+										<label class="control-label" for="finance">Finance </label> <input
+											type="checkbox" id="finance" name="finance">
+
+										<div class="row">
+											<label class="control-label" for="recToReport">Record
+												to Report </label> <input type="checkbox" id="recToReport"
+												name="recToReport">
+										</div>
+										<div class="row">
+											<label class="control-label" for="procdToPay">Proceed
+												to Pay </label> <input type="checkbox" id="procdToPay"
+												name="procdToPay">
+										</div>
+										<div class="row ">
+											<label class="control-label" for="billToCash">Bill To
+												Cash </label> <input type="checkbox" id="billToCash"
+												name="billToCash">
+										</div>
+										<div class="row">
+											<label class="control-label" for="plan&consol">Planning
+												& Consolidation </label> <input type="checkbox" id="plan&consol"
+												name="plan&consol">
+										</div>
+									</div>
+
+									<div class="form-group col-md-3">
+										<label class="control-label" for="supplyChain">Supply
+											Chain </label> <input type="checkbox" id="supplyChain"
+											name="supplyChain">
+
+										<div class="row">
+											<label class="control-label" for="scmPlanning">SCM
+												Planning </label> <input type="checkbox" id="scmPlanning"
+												name="scmPlanning">
+										</div>
+										<div class="row">
+											<label class="control-label" for="sourding">Sourding
+											</label> <input type="checkbox" id="sourding" name="sourding">
+										</div>
+										<div class="row ">
+											<label class="control-label" for="procurement">Procurement
+											</label> <input type="checkbox" id="procurement" name="procurement">
+										</div>
+										<div class="row">
+											<label class="control-label" for="scmCollaboration">SCM
+												Collaboration</label> <input type="checkbox" id="scmCollaboration"
+												name="scmCollaboration">
+										</div>
+										<div class="row">
+											<label class="control-label" for="valueChainExecution">Value
+												Chain Execution </label> <input type="checkbox"
+												id="valueChainExecution" name="valueChainExecution">
+										</div>
+										<div class="row">
+											<label class="control-label" for="wareHouseMngmt">Warehouse
+												Management </label> <input type="checkbox" id="wareHouseMngmt"
+												name="wareHouseMngmt">
+										</div>
+									</div>
+
+									<div class="form-group col-md-3">
+										<label class="control-label" for="custExp">Customer
+											Experience </label> <input type="checkbox" id="custExp"
+											name="custExp">
+
+										<div class="row">
+											<label class="control-label" for="marketing">Marketing
+											</label> <input type="checkbox" id="marketing" name="marketing">
+										</div>
+
+										<div class="row">
+											<label class="control-label" for="sales">Sales </label> <input
+												type="checkbox" id="sales" name="sales">
+										</div>
+										<div class="row">
+											<label class="control-label" for="service">Service </label> <input
+												type="checkbox" id="service" name="service">
+										</div>
+										<div class="row">
+											<label class="control-label" for="priceQuote">Configure
+												Price Quote </label> <input type="checkbox" id="priceQuote"
+												name="priceQuote">
+										</div>
+										<div class="row">
+											<label class="control-label" for="contracts">Contracts
+											</label> <input type="checkbox" id="contracts" name="contracts">
+										</div>
+										<div class="row">
+											<label class="control-label" for="ecommerce">Ecommerce
+											</label> <input type="checkbox" id="ecommerce" name="ecommerce">
+										</div>
+									</div>
+
+									<div class="form-group col-md-3">
+										<label class="control-label" for="hcm">HCM </label> <input
+											type="checkbox" id="hcm" name="hcm">
+
+										<div class="row">
+											<label class="control-label" for="coreHR">CoreHR </label> <input
+												type="checkbox" id="coreHR" name="coreHR">
+											<div class="row">
+												<label class="control-label" for="talentManagement">Talent
+													Management </label> <input type="checkbox" id="talentManagement"
+													name="talentManagement">
+											</div>
+											<div class="row">
+												<label class="control-label" for="talentAcquisition">Talent
+													Acquisition </label> <input type="checkbox" id="talentAcquisition"
+													name="talentAcquisition">
+											</div>
+											<div class="row">
+												<label class="control-label" for="payroll">Payroll </label>
+												<input type="checkbox" id="payroll" name="payroll">
+											</div>
+											<div class="row">
+												<label class="control-label" for="learning">Learning
+												</label> <input type="checkbox" id="learning" name="learning">
+											</div>
+										</div>
+									</div>
+								</div>
+        
     </div>
   </form>
-</div>
+<!-- </div> -->
 </div>
 </div>
 </div>

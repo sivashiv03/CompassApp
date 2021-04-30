@@ -86,5 +86,16 @@ public class AssesmentController {
 		}
 		return ResponseEntity.ok(result);
 	}
+	
+	@GetMapping("/")
+	public String getHome(Model model) {
+		return "home";
+	}
+	
+	/*
+	 * @GetMapping("/getAssessmentScope") public String getAssessmentPage() { return
+	 * "AsessmentScope"; }
+	 */
+
 
 }
