@@ -191,172 +191,38 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="remarks">Remarks:</label>
       <div class="col-sm-8">
-        <textarea th:field="*{remarks}" maxlength="200" class="form-control inputFields textNumber" rows="4"  id="remark" placeholder="Enter Remarks" name="remark" required></textarea>
+        <textarea th:field="*{remarks}" maxlength="200" class="form-control inputFields textNumber" rows="4"  id="remarks" placeholder="Enter Remarks" name="remarks" required></textarea>
       </div>
         </div>
-         <button class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Next</button>
+         <button id="step2Submit" class="btn btn-primary nextBtn btn-lg pull-right" type="submit" >Next</button>
     </div>
     
     <div class="row setup-content" id="step-3">
-       
-
-								<br />
 								<h3 class="text-center col-md-12">Functional Scope
 									Selection</h3>
 								<br /> <br /> <br /> <br />
-								<div class="col-md-12">
-									<div class="form-group col-md-3">
-										<input type="checkbox" id="finance" name="finance"> <label
-											class="control-label" for="finance">Finance </label> <br />
-										<br />
-										<div class="row">
-											<input type="checkbox" id="recToReport" name="recToReport">
-											<label class="control-label" for="recToReport">Record
-												to Report </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="procdToPay" name="procdToPay">
-											<label class="control-label" for="procdToPay">Proceed
-												to Pay </label>
-										</div>
-										<br />
-										<div class="row ">
-											<input type="checkbox" id="billToCash" name="billToCash">
-											<label class="control-label" for="billToCash">Bill To
-												Cash </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="plan&consol" name="plan&consol">
-											<label class="control-label" for="plan&consol">Planning
-												& Consolidation </label>
-										</div>
-									</div>
+								<div id="assementScopeWindow" class="container-fluid">
+									<div class="row headerrow">
+	<div class="col-sm-3">
+		<label for="finance" class="btn btn-primary">Finance <input type="checkbox" id="finance" name="FIN" class="badgebox"><span class="badge">&check;</span></label>
 
-									<div class="form-group col-md-3">
-										<input type="checkbox" id="supplyChain" name="supplyChain"><label
-											class="control-label" for="supplyChain">Supply Chain
-										</label> <br /> <br />
-										<div class="row">
-											<input type="checkbox" id="scmPlanning" name="scmPlanning">
-											<label class="control-label" for="scmPlanning">SCM
-												Planning </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="sourding" name="sourding">
-											<label class="control-label" for="sourding">Sourding
-											</label>
-										</div>
-										<br />
-										<div class="row ">
-											<input type="checkbox" id="procurement" name="procurement">
-											<label class="control-label" for="procurement">Procurement
-											</label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="scmCollaboration"
-												name="scmCollaboration"> <label
-												class="control-label" for="scmCollaboration">SCM
-												Collaboration</label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="valueChainExecution"
-												name="valueChainExecution"> <label
-												class="control-label" for="valueChainExecution">Value
-												Chain Execution </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="wareHouseMngmt"
-												name="wareHouseMngmt"> <label class="control-label"
-												for="wareHouseMngmt">Warehouse Management </label>
-										</div>
-									</div>
+	</div>
+	<div class="col-sm-3">
+								<label for="supplychain" class="btn btn-primary">Suppy Chain <input type="checkbox" id="supplychain" name="SCM" class="badgebox"><span class="badge">&check;</span></label>
 
-									<div class="form-group col-md-3">
-										<input type="checkbox" id="custExp" name="custExp"> <label
-											class="control-label" for="custExp">Customer
-											Experience </label> <br /> <br />
-										<div class="row">
-											<input type="checkbox" id="marketing" name="marketing">
-											<label class="control-label" for="marketing">Marketing
-											</label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="sales" name="sales"> <label
-												class="control-label" for="sales">Sales </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="service" name="service"> <label
-												class="control-label" for="service">Service </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="priceQuote" name="priceQuote">
-											<label class="control-label" for="priceQuote">Configure
-												Price Quote </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="contracts" name="contracts">
-											<label class="control-label" for="contracts">Contracts
-											</label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="ecommerce" name="ecommerce">
-											<label class="control-label" for="ecommerce">Ecommerce
-											</label>
-										</div>
-									</div>
+	</div>
+	<div class="col-sm-3">
+								<label for="hcm" class="btn btn-primary">HCM <input type="checkbox" name="HCM"  id="hcm" class="badgebox"><span class="badge">&check;</span></label>
 
-									<div class="form-group col-md-3">
-										<input type="checkbox" id="hcm" name="hcm"> <label
-											class="control-label" for="hcm">HCM </label> <br /> <br />
-										<div class="row">
-											<input type="checkbox" id="coreHR" name="coreHR"> <label
-												class="control-label" for="coreHR">CoreHR </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="talentManagement"
-												name="talentManagement"> <label
-												class="control-label" for="talentManagement">Talent
-												Management </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="talentAcquisition"
-												name="talentAcquisition"> <label
-												class="control-label" for="talentAcquisition">Talent
-												Acquisition </label>
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="payroll" name="payroll"> <label
-												class="control-label" for="payroll">Payroll </label>
+	</div>
+	<div class="col-sm-3">
+							<label for="customerexperience" class="btn btn-primary">Customer Experience <input type="checkbox" name="CX" id="customerexperience" class="badgebox"><span class="badge">&check;</span></label>
+	</div>
+	</div>
+	</div>
 
-										</div>
-										<br />
-										<div class="row">
-											<input type="checkbox" id="learning" name="learning">
-											<label class="control-label" for="learning">Learning
-											</label>
-										</div>
-
-									</div>
-								</div>
-
-
-								<button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
-        
-    </div>
+<!-- 	<button class="btn btn-success btn-lg pull-right" type="submit">Submit</button>
+ -->    </div>
   </form>
 <!-- </div> -->
 </div>

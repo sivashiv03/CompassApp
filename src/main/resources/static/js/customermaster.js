@@ -137,5 +137,45 @@ $(document).ready(function() {
         return o;
     };
 
+    $('#assementScopeWindow :checkbox').change(function(event) {
+        var streamName = event.target.name;
+        // this will contain a reference to the checkbox   
+        if (this.checked) {
+            // the checkbox is now checked 
+            console.log('Checked');
+             $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/getProcessByStream/"+streamName,
+            data: '',
+            dataType: 'json',
+            cache: false,
+            timeout: 600000,
+            success: function(data) {
+                console.log("SUCCESS : ", data);
+                if (data.errorCode == 200) {
+                    $("#assementScopeWindow").append("<div class='"+streamName+" animated slideInDown'></div>");
+                    $.each(data.resultBody, function( key, value ) {
+                        console.log( key + ": " + value );
+                        $("."+streamName).append("<br/><div class='row '"+value.streamCode+"'><input type='checkbox' id='"+value.streamCode+key+"' name='"+value.streamCode+key+"'> <label class='control-label' for='"+value.streamCode+"'>"+value.processName+" </label></div><br/>");
+                    });
+
+                } 
+               // $('#step-3').append("<div class='col-xs-12'><div class='col-md-12'><h3>" + resultMsg + "</h3></div></div>");
+               // $(".setup-panel").find('.btn-circle').attr('disabled', 'disabled');
+            },
+            error: function(e) {
+                console.log("ERROR : ", e);
+
+            }
+        });
+
+        } else {
+            // the checkbox is now no longer checked
+            console.log('Un-Checked');
+             $("."+streamName).slideUp().remove();
+        }
+    });
+
 
 });

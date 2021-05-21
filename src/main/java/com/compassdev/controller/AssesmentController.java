@@ -3,6 +3,7 @@ package com.compassdev.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +17,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.compassdev.dao.CustomerRepository;
+import com.compassdev.dao.LookUpRepository;
+import com.compassdev.dao.LookUpRepositoryImpl;
 import com.compassdev.model.CustomerMaster;
+import com.compassdev.model.StreamProcessLookup;
 
 @Controller
 public class AssesmentController {
 
 	@Autowired
 	private CustomerRepository customerRepository;
-
+	
+	@Autowired
+	private LookUpRepository lookUpRepository;
+	
+	
 	@GetMapping("/sampleInsert")
 	public @ResponseBody String bulkcreate(){
 		// save a single Customer
@@ -92,10 +100,17 @@ public class AssesmentController {
 		return "home";
 	}
 	
-	/*
-	 * @GetMapping("/getAssessmentScope") public String getAssessmentPage() { return
-	 * "AsessmentScope"; }
-	 */
+	@GetMapping("/getProcessByStream/{streamName}")
+	public @ResponseBody ResponseEntity<?> getProcessByStream(@PathVariable(value = "streamName") String streamName){
+		// save a single Customer
+		com.compassdev.model.ResponseBody<List<StreamProcessLookup>> result = new com.compassdev.model.ResponseBody<>();
+		List<StreamProcessLookup> processList = lookUpRepository.findAll();
+		processList = processList.stream().filter(processResult -> processResult.getStreamCode().equals(streamName)).collect(Collectors.toList());
+		result.setErrorCode(200);
+		result.setErrorMessage("Success");
+		result.setResultBody(processList);
+		return ResponseEntity.ok(result);
 
+	}
 
 }
