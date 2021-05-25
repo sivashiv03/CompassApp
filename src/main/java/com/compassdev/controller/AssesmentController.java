@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.compassdev.dao.CustomerRepository;
 import com.compassdev.dao.LookUpRepository;
-import com.compassdev.dao.LookUpRepositoryImpl;
 import com.compassdev.model.CustomerMaster;
 import com.compassdev.model.StreamProcessLookup;
 
@@ -75,7 +75,8 @@ public class AssesmentController {
 	@GetMapping("/getCustomerLandingPage")
 	public String getCustomerMaster(Model model) {
 		CustomerMaster customerMaster = new CustomerMaster();
-		model.addAttribute("customerMaster",customerMaster);		
+		model.addAttribute("customerMaster",customerMaster);	
+		//model.addAttribute("customerId",customerId);
 		return "CustomerMasterForm";
 	}
 
@@ -112,5 +113,18 @@ public class AssesmentController {
 		return ResponseEntity.ok(result);
 
 	}
+	
+	@GetMapping("/getAllCustomers")
+	public @ResponseBody ResponseEntity<?> getAllCustomers(){
+		// save a single Customer
+		com.compassdev.model.ResponseBody<List<CustomerMaster>> result = new com.compassdev.model.ResponseBody<>();
+		List<CustomerMaster> customer = customerRepository.findAll();
+		result.setErrorCode(200);
+		result.setErrorMessage("Success");
+		result.setResultBody(customer);
+		return ResponseEntity.ok(result);
+
+	}
+
 
 }

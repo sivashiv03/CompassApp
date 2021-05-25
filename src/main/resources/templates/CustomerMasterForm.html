@@ -1,10 +1,12 @@
 <script type="text/javascript" src="/js/jquery-1.11.1.min.js" th:src="@{/js/jquery-1.11.1.min.js}"></script>
 <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script type="text/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="/js/common.js" th:src="@{/js/common.js}" ></script>
 <link rel="stylesheet" type="text/css" href="css/customermaster.css">
 <link rel="stylesheet" type="text/css" href="css/formbody.css">
 <script type="text/javascript" src="/js/customermaster.js" th:src="@{/js/customermaster.js}" ></script>
-
+<script type="text/javascript" src="/js/toastr.min.js" th:src="@{/js/toastr.min.js}" ></script>
+<link rel="stylesheet" type="text/css" href="css/toastr.min.css">
 
 <body class="home">
     <div class="container-fluid display-table">
@@ -70,13 +72,15 @@
                     
     
                    <!--  <div class="leftPanel"> -->
+                                  
   <form id ="customerForm" class="form-horizontal" action="#" th:action="@{/addCustomer}" th:object="${customerMaster}"
 					method="post">
 					<div class="row setup-content" id="step-1">
+            <input type="hidden" value="${customerId}"  id="customerId">
    <div class="form-group">
       <label class="control-label col-sm-3" for="companyName">Company Name:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{customerName}" maxlength="150" required="required" class="form-control inputFields textNumber"  id="companyName" placeholder="Enter Company" name="companyName">
+        <input type="text" th:field="*{customerName}" maxlength="150" required="required" class="form-control inputFields textNumber"  id="customerName" placeholder="Enter Company" name="companyName">
       </div>
       </div>
 
@@ -90,7 +94,7 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="countryHQ">Country HQ:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{countryhq}" maxlength="150" required="required" class="form-control inputFields textNumber"  id="countryHQ" placeholder="Enter Country HQ" name="countryHQ">
+        <input type="text" th:field="*{countryhq}" maxlength="150" required="required" class="form-control inputFields textNumber"  id="countryhq" placeholder="Enter Country HQ" name="countryHQ">
       </div>
     </div>
 
@@ -104,31 +108,31 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="numOfEmp">No. of Employees:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{noOfEmployees}" maxlength="20" required="required" class="form-control inputFields onlyNumber"  id="numOfEmp" placeholder="Enter Number Of Employees" name="numOfEmp">
+        <input type="text" th:field="*{noOfEmployees}" maxlength="20" required="required" class="form-control inputFields onlyNumber"  id="noOfEmployees" placeholder="Enter Number Of Employees" name="numOfEmp">
       </div>
     </div>
-     <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
+     <button id="step1Submit" class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Next</button>
     </div>
 	
 <div class="row setup-content" id="step-2">
 <div class="form-group">
       <label class="control-label col-sm-3" for="inventory">Annual Inventory:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{annualInventory}" maxlength="20" class="form-control inputFields onlyNumber"  id="inventory" placeholder="Enter Annual Inventory" name="inventory">
+        <input type="text"  th:field="*{annualInventory}" maxlength="20" class="form-control inputFields onlyNumber"  id="annualInventory" placeholder="Enter Annual Inventory" name="inventory">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="cogs">COGS As % Revenue:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{cogsAsPercentage}" maxlength="20" class="form-control inputFields number"  id="cogs" placeholder="Enter COGS" name="cogs">
+        <input type="text"  th:field="*{cogsAsPercentage}" maxlength="20" class="form-control inputFields number"  id="cogsAsPercentage" placeholder="Enter COGS" name="cogs">
       </div>
     </div>
 
 <div class="form-group">
       <label class="control-label col-sm-3" for="costOfCapital">Cost of Capital:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{cogsCapital}" maxlength="20" class="form-control inputFields number"  id="costOfCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
+        <input type="text"  th:field="*{cogsCapital}" maxlength="20" class="form-control inputFields number"  id="cogsCapital" placeholder="Enter Cost Of Capital" name="costOfCapital">
       </div>
     </div>
     <div class="form-group">
@@ -141,7 +145,7 @@
     <div class="form-group">
       <label class="control-label col-sm-3" for="daysToFinClose">Days To Fin Close:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{daysFinClose}" maxlength="20"  class="form-control inputFields onlyNumber"  id="daysToFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
+        <input type="text"  th:field="*{daysFinClose}" maxlength="20"  class="form-control inputFields onlyNumber"  id="daysFinClose" placeholder="Enter Days To Fin Close" name="daysToFinClose">
       </div>
     </div>
 
@@ -155,7 +159,7 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="hrWrkPrDay">Hours Work Per day:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{hoursWorkedPerDay}"  class="form-control inputFields onlyNumber"  id="hrWrkPrDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
+        <input type="text"  th:field="*{hoursWorkedPerDay}"  class="form-control inputFields onlyNumber"  id="hoursWorkedPerDay" placeholder="Enter Hours Work Per Day:" name="hrWrkPrDay">
       </div>
     </div>
 
@@ -163,7 +167,7 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="ItBudget">IT Budget as % of Revenue:</label>
       <div class="col-sm-8">
-        <input type="text" th:field="*{itBudget}" maxlength="20"  class="form-control inputFields number"  id="ItBudget" placeholder="Enter IT Budget As % Of Revenue:" name="ItBudget">
+        <input type="text" th:field="*{itBudget}" maxlength="20"  class="form-control inputFields number"  id="itBudget" placeholder="Enter IT Budget As % Of Revenue:" name="ItBudget">
       </div>
     </div>
 
@@ -177,14 +181,14 @@
 <div class="form-group">
       <label class="control-label col-sm-3" for="oprtngProfitMargin">Operating Profit Margin:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{operatingProfitMargin}" maxlength="20"  class="form-control inputFields number"  id="oprtngProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
+        <input type="text"  th:field="*{operatingProfitMargin}" maxlength="20"  class="form-control inputFields number"  id="operatingProfitMargin" placeholder="Enter Operating Profit Margins:" name="oprtngProfitMargin">
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-3" for="r&dExpense">R&D Expenses:</label>
       <div class="col-sm-8">
-        <input type="text"  th:field="*{rndExpenses}" maxlength="20" class="form-control inputFields number"  id="randdExpense" placeholder="Enter R&D Expenses:" name="r&dExpense">
+        <input type="text"  th:field="*{rndExpenses}" maxlength="20" class="form-control inputFields number"  id="rndExpenses" placeholder="Enter R&D Expenses:" name="r&dExpense">
       </div>
     </div>
 
